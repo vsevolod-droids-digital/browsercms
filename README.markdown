@@ -1,4 +1,4 @@
-# BrowserCMS: Humane Content Management for Rails
+# BrowserCMS: Гумманный компромис между разработчиками и пользователями
 
 BrowserCMS is a general purpose, open source Web Content Management System (CMS) that supports Ruby on Rails v3.2. It can be used as a standalone CMS, added to existing Rails projects or extended using Rails Engines. It is designed to support three distinct groups of users:
 
