@@ -3,10 +3,8 @@ class PortletsController < Cms::ContentBlockController
   
   protected
     def load_blocks
-      @blocks = Portlet.search(params[:search]).paginate(
+      @blocks = Portlet.search(params[:search]).where('deleted = ?', false).order(params[:order] || 'name').paginate(
         :page => params[:page],
-        :order => params[:order] || "name",
-        :conditions => ["deleted = ?", false]
       )
     end
   
