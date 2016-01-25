@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    browsercms (3.5.7)
+    browsercms (0.0.1)
       ancestry (~> 1.2.4)
       ckeditor_rails (~> 3.6.4)
       jquery-rails (~> 2.0)
