@@ -169,5 +169,9 @@ module Cms
       able_to?(:edit_content, :publish_content)
     end
 
+
+    def to_s
+      self.full_name_or_login
+    end
   end
 end
