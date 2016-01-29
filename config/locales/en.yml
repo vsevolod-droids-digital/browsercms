@@ -7,3 +7,7 @@ en:
         attachments:
           one: The attached file
           other: An attached file
+
+  couldn_t_log_you_in_as_login: "Couldn't log you in as '%{login}'"
+  you_have_been_logged_out: "You have been logged out."
+  logged_in_successfully: "Logged in successfully"

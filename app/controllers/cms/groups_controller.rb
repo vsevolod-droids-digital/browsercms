@@ -6,10 +6,9 @@ class GroupsController < Cms::ResourceController
   before_filter :set_menu_section
   
   def index
-    @groups = Group.paginate(
+    @groups = Group.order(params[:order] || "#{Group.table_name}.name").paginate(
       :include => :group_type,
-      :page => params[:page], 
-      :order => params[:order] || "#{Group.table_name}.name")
+      :page => params[:page])
   end
   
   protected

@@ -5,7 +5,7 @@ class PageRoutesController < Cms::BaseController
   layout 'cms/administration'
   
   def index
-    @page_routes = PageRoute.paginate(:order => "name", :page => params[:page])
+    @page_routes = PageRoute.order(:name).paginate(:page => params[:page])
   end
   
   def new

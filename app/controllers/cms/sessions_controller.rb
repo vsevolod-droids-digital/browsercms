@@ -20,7 +20,7 @@ class SessionsController < Cms::ApplicationController
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      flash[:notice] = "Logged in successfully"
+      flash[:notice] = I18n::t(:logged_in_successfully)
       if params[:success_url] # Coming from login portlet
         redirect_to((!params[:success_url].blank? && params[:success_url]) || session[:return_to] || "/")
         session[:return_to] = nil
@@ -60,12 +60,12 @@ class SessionsController < Cms::ApplicationController
   def logout_user
     logout_killing_session!
     cookies.delete :openSectionNodes
-    flash[:notice] = "You have been logged out."
+    flash[:notice] = I18n::t(:you_have_been_logged_out)
   end
 
   # Track failed login attempts
   def note_failed_signin
-    flash[:error] = "Couldn't log you in as '#{params[:login]}'"
+    flash[:error] = I18n::t(:couldn_t_log_you_in_as_login,:login=>params[:login])
     logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
   end
 
