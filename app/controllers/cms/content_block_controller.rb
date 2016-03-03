@@ -127,11 +127,12 @@ module Cms
         options[:conditions] = ["#{Namespacing.prefix("section_nodes")}.ancestry = ?", Section.find(params[:section_id]).ancestry_path]
       end
       options[:page] = params[:page]
-      options[:order] = model_class.default_order if model_class.respond_to?(:default_order)
-      options[:order] = params[:order] unless params[:order].blank?
+      order = model_class.default_order if model_class.respond_to?(:default_order)
+      order = params[:order] unless params[:order].blank?
 
       scope = model_class.respond_to?(:list) ? model_class.list : model_class
       @blocks = scope.searchable? ? scope.search(params[:search]).paginate(options) : scope.paginate(options)
+      @blocks = @block.order(order) if order
       check_permissions
     end
 
