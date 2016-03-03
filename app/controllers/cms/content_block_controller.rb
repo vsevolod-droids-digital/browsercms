@@ -132,7 +132,7 @@ module Cms
 
       scope = model_class.respond_to?(:list) ? model_class.list : model_class
       @blocks = scope.searchable? ? scope.search(params[:search]).paginate(options) : scope.paginate(options)
-      @blocks = @block.order(order) if order
+      @blocks = @blocks.order(order) if order
       check_permissions
     end
 
